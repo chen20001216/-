@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cc">
+        <button-cr7></button-cr7>
+    </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+    Vue.component('button-cr7',{
+        data:function(){
+            return{
+                num:0
+            }
+        },
+        template:'<button @click = "hand">点击了{{num}}</button>',
+        methods:{
+            hand:function(){
+                this.num +=2
+            }
+        }
+    })
+    var vm = new Vue({
+        el:'.cc', 
+        data:{
+
+        }
+    })
+</script>
+</html>

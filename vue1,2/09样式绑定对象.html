@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        }
+        .err{
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="cc">
+        <div :class="{active: isActive,err:isErr}">
+
+        </div>
+        <button @click = 'hand'>切换</button>
+    </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'.cc',
+        data:{
+            isActive:true,
+            isErr:true
+        },
+        methods:{
+            hand :function(){
+                //控制isactive的值在true和false之间切换
+                this.isActive = !this.isActive
+                this.isErr = !this.isErr
+
+            }
+        }
+    })
+</script>
+</html>

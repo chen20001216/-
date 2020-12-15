@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div :style="{fontSize:fontSize +'px'}">{{pmsg}}</div>
+    <menu-item :parr="parr" @enlarge-text="handle($event)"></menu-item>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    //子组件向父组件传值，携带参数
+    Vue.component('menu-item',{
+        props:['parr'],
+        template:`
+        <div>
+        <ul>
+        <li v-for="(item,index) in parr">{{item}}</li>
+        </ul>
+        <button @click="$emit('enlarge-text',5)">扩大父组件字体大小</button>
+        <button @click="$emit('enlarge-text',10)">扩大父组件字体大小</button>
+        </div>`
+    })
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            pmsg:'父组件的内容',
+            parr:['詹姆斯','梅西','C罗'],
+            fontSize:10
+        },
+        methods:{
+            handle:function (val) {
+                this.fontSize += val
+
+            }
+        }
+    })
+</script>
+</html>

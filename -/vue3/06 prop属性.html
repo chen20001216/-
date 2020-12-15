@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>{{pmsg}}</div>
+    <menu-item :parr='parr' :pnum='33' :pobj='pobj' :pstr='pstr'></menu-item>
+</div>
+<script src="vue.js"></script>
+<script>
+    //父组件向子组件传值-props属性名类型
+    Vue.component('menu-item', {
+        props: ['pstr', 'pnum', 'parr', 'pobj'],
+        template: `<div>
+                <div>{{pstr}}</div>
+                <div>{{typeof pnum}}</div>
+                <ul>
+                <li v-for = '(item,index) in parr' >{{item}}</li>
+                </ul>
+             <div>
+             <span>{{pobj.name}}</span>
+             <span>{{pobj.age}}</span>
+             </div>
+                    </div>`
+
+    })
+
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            pmsg: '父组件的内容',
+            pstr: 'hello',
+            parr: ['詹姆斯', '大猩猩', '三旬老猩'],
+            pobj: {
+                name: '梅西',
+                age: 30
+            }
+        }
+    })
+</script>
+</body>
+</html>

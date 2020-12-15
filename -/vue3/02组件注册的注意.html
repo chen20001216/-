@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cc">
+        <button-cr7></button-cr7>
+        <button-cr7></button-cr7>
+        <hello-nmb></hello-nmb>
+        <button-cr7></button-cr7>
+        <button-cr777></button-cr777>
+
+
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component('helloNmb',{
+            data:function(){
+                return{
+                    msg:'hello nmb'
+                }
+            },
+            template: `<div>{{msg}} </div>`
+        })
+        Vue.component('button-cr7',{
+            data:function(){
+                return {
+                    num:0
+                }
+            },
+            template:`<div>
+            <button @click = 'hand'>点击了{{num}}</button>
+            <button >{{num}}</button>
+            <helloNmb></helloNmb>
+            </div>`,
+            methods:{
+                hand:function(){
+                    this.num += 2
+                }
+            }
+        });
+        Vue.component('button-cr777',{
+            data:function () {
+                return{
+                    msg:'永远的神'
+                }
+            },
+            template:`<div>{{msg}}</div>`
+        })
+        let vm = new Vue({
+            el:'.cc',
+            data:{
+
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

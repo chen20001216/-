@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab ul{
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        .tab ul li {
+            box-sizing: border-box;
+            padding: 0;
+            float: left;
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            list-style: none;
+            text-align: center;
+            border-top: 1px solid red;
+            border-right: 1px solid red;
+            cursor: pointer;
+        }
+        .tab ul li:first-child{
+            border-left: 1px solid blue;
+        }
+        .tab ul .active{
+            background-color: gold;
+        }
+        .tab div{
+            width: 500px;
+            height: 300px;
+            display: none;
+            text-align: center;
+            font-size: 30px;
+            line-height: 300px;
+            border: 1px solid blue;
+
+        }
+        div.current{
+            display: block;
+        }
+        img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="cc">
+        <div class="tab">
+            <ul><li v-for = '(item,index) in list ' :class = 'currentIndex == index? "active": ""' @click = 'hand(index)'>
+                {{item.title}}
+            </li></ul>
+            <div v-for = '(item,index) in list ' :class = 'currentIndex == index? "current": ""'>
+                <img :src="item.path" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+    var cr7 = new Vue({
+        el:'.cc',
+        data:{
+            currentIndex:0,//选项卡当前的索引
+            list:[{
+                id:1,
+                title:'C罗',
+                path:'./IMG_001.jpg'
+            },{
+                id:2,
+                title:'ronaldo',
+                path:'./IMG_002.jpg'
+            },{
+                id:3,
+                title:'cr7',
+                path:'./IMG_003.jpg'
+            }]
+        },
+        methods:{
+            hand:function(index){
+                //实现选项卡切换操作
+                this.currentIndex = index
+            }
+        }
+    })
+</script>
+</html>

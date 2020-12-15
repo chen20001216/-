@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cc">
+        <!-- 对象语法控制样式 -->
+        <div v-bind:style ='{border:borderStyle, width:widthStyle, height:heightStyle}'></div>
+        <div v-bind:style = 'cr'></div>
+        <!-- 数组的语法控制 -->
+        <div v-bind:style = '[cr,over]'></div>
+        <button @click = 'hand'>变小</button>
+    </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+    let cc = new Vue({
+        el:'.cc',
+        data:{
+            borderStyle:'10px solid blue',
+            widthStyle:'200px',
+            heightStyle:'200px',
+            cr:{
+                border : '20px solid gold',
+                height : '300px',
+                width : '300px'
+            },
+            over:{
+                border:'5px solid skyblue',
+                backgroundColor:'black'
+            }
+        },
+        methods:{
+            hand:function(){
+                this.heightStyle = '150px',
+                this.borderStyle = '1px dashed red',
+                this.cr.border = '10px solid green',
+                this.cr.height = '103px '
+                this.cr.width = '103px'
+
+            }
+        }
+    })
+</script>
+</html>

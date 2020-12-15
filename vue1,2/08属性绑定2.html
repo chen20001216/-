@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cc">
+        <!-- v-bind:能写为: -->
+        <div>{{msg}}</div>
+        <!-- @input = 'msg = $e.target.value' -->
+        <!-- <input type="text" :value="msg" @input = 'hand'> -->
+        <input type="text" v-model = 'msg'>
+
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        //v-model指令的本质双向绑定
+        let vm = new Vue({
+            el:'.cc',
+            data:{
+                msg:'yyds'
+            },
+            methods:{
+                hand:function(e){
+                    //使用输入域中最新的数据覆盖原来的数据
+                    this.msg = e.target.value
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

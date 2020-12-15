@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <leo-messi></leo-messi>
+    <cristiano-ronaldo></cristiano-ronaldo>
+    <div class="cc"></div>
+  </div>
+  <script type="text/javascript" src="./vue.js"></script>
+  <script type="text/javascript">
+    /*
+      局部组件注册
+      局部组件只能在注册他的父组件中使用
+    */let cristianoRonaldo = {
+        data:function(){
+            return{
+                msg:'C罗永远的神'
+            }
+        }
+        ,
+        template:`<div>{{msg}}</div>`
+
+    }
+    let leoMessi = {
+        data:function(){
+            return {
+                msg:'梅西三亚'
+            }
+        },
+        template:`<div>{{msg}}</div>`
+    }
+    let vm = new Vue({
+        el:'#app',
+        data:{
+
+        },
+        components:{
+            'leo-messi': leoMessi,
+            'cristiano-ronaldo':cristianoRonaldo
+        }
+    })
+  </script>
+</body>
+</html>

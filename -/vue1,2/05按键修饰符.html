@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cc">
+        <form action="">
+            <div>
+                用户名
+                <!-- delete删除键 @ == v-on:-->
+                <input type="text" @keyup.delete = 'clear' v-model = 'uname'>
+            </div>
+            <div>
+                密码
+                <!-- enter回车键 -->
+                <input type="text" v-model = 'pwd' @keyup.enter= 'hand1' @keyup.delete = 'clear'>
+            </div>
+            <div>
+                <input type="button" @click = 'hand1' value="提交">
+            </div>
+        </form>
+
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        //按键修饰符
+        var vm = new Vue({
+            el:'.cc',
+            data:{
+                uname:'',
+                pwd:''
+            },
+            methods:{
+                clear:function(){
+                    //按delete时清空内容
+                    this.uname = '',
+                    this.pwd = ''
+                },
+                hand1:function(){
+                    console.log(this.uname,this.pwd);
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cc">
+
+        <!-- 分支循环结构 -->
+        <!-- if会只渲染符合条件的结构样式 -->
+        <div v-if = 'score>=90'>优秀</div>
+        <div v-else-if = 'score>80&&score<=90'>良好</div>
+        <!-- 会渲染结构但会控制是否显示 会为none或者block-->
+        <div v-show = 'flag' v-bind:style = 'ccc'>测试</div>
+        <button @click='hand'>点击</button>
+    </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+    var cr = new Vue({
+        el:'.cc',
+        data:{
+            score: 85,
+            flag:true,
+            ccc:{
+                width:'200px',
+                height:'300px',
+                backgroundColor:'red',
+                
+            }
+        },
+        methods:{
+            hand:function(){
+                this.flag = !this.flag
+            }
+        }
+    })
+</script>
+</html>

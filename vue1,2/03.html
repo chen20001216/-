@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cr">
+        <div>{{num}}</div>
+        <button @click = 'handle1'>点击1</button>
+        <button @click = 'handle2(11,22,$event)'>点击2</button>
+    </div>
+    <script src="./vue.js"></script>
+    <!-- 1.如果事件直接绑定事件名称，那么会默认传递事件的第一个参数
+        2.如果事件绑定函数调用，那么事件对象必须作为最后一个参数显示传递，并且事件对象的名称必须是￥event
+    -->
+    <script>
+        let vm = new Vue({
+            el:'.cr',
+            data:{
+                num : 0
+            },
+            methods:{
+                handle1:function(event){
+                    vm.num++
+                   console.log(event.target.innerHTML);
+                },
+                handle2:function(a,b,event){
+                    vm.num--,
+                    console.log(event.target.innerHTML);
+                    console.log(a,b);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cc">
+        <!-- //数据填充
+        写成:href也能 -->
+        <a  v-bind:href="url">百度</a>
+        <button @click = 'hand'>切换</button>
+
+    </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'.cc',
+        data:{
+            url:'http://www.baidu.com'
+        },
+        methods:{
+            hand:function(){
+                //修改url地址
+                this.url='https://bbs.hupu.com/'
+            }
+        }
+    })
+</script>
+</html>

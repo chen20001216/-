@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{pmsg}}</div>
+         <cr777 :title = 'ptitle' @click='handle'></cr777>
+
+    </div>
+
+</body>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('cr777',{
+            props:['title','content'],
+            data:function () {
+                return{
+                    msg:'子组件本身的数据'
+                }
+
+            },
+            template:'<div>{{msg + "----"+ title}}</div>'
+            }
+        )
+        let vm = new Vue({
+            el:'#app',
+            data: {
+            pmsg:'你爹',
+            ptitle:'动态绑定',
+
+
+            },
+            methods:{
+                handle:function () {
+                    this.fontsize = 30
+                }
+            }
+
+        })
+    </script>
+</html>

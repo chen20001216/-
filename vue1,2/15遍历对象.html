@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cc">
+        <!-- 括号分别对应值 对应属性 和 索引 -->
+        <div  v-if = 'v==36' v-for = '(v,k,i) in obj'>{{v+`--`+k+`--`+i}}</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+
+        //原生js遍历对象
+        var obj = {uname:' james',age:36,sex:'男'}
+        for(var k in obj ){
+            console.log(k,obj[k]);
+        }
+        //vue遍历对象
+        var cc= new Vue({
+            el:'.cc',
+            data:{
+                obj :{uname:' james',age:36,sex:'男'}
+            },
+            methods:{
+                hand:function(){
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

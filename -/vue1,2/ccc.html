@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cr7">
+        <div>{{msg}}</div>
+        <div>{{fff}}</div>
+        <!-- v-model用户双向绑定 -->
+    <!-- 值也会影响上面的数据 -->
+        <input type="text" v-model = 'msg' >
+    </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'.cr7',
+        data:{
+            msg:'sss',
+            fff:'永远的神'
+        },
+        
+    })
+</script>
+</html>
